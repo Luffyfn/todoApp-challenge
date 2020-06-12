@@ -24,6 +24,13 @@ function tasksReducers(state=initialState, task) {
                     el => el.id === task.id ? {...el, isEdited: !el.isEdited} : el,
                 )
             })
+        case "TOGGLE_TASK":
+            return ({
+                ...state,
+                tasks: state.tasks.map(
+                    el => el.id === task.id ? {...el, isEdited: false, desc: el.desc} : el,
+                )
+            })
         
     }; 
 }
